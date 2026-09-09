@@ -6,7 +6,7 @@ tif/
 
 The TIFF files sit directly in `tif/`, without an additional directory level.
 
-For layered-organoid recordings, `11` and `13` preserve the labels of the source directories in which the data were received:
+For BTO recordings, `11` and `13` preserve the labels of the source directories in which the data were received:
 
 ```text
 C5D_7978_samp11_TD150_TIFF8bit/

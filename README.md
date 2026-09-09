@@ -1,6 +1,8 @@
 # Neural organoid calcium-imaging analysis
 
-This repository contains the processing and analysis notebooks for the accompanying neural-organoid manuscript. The released workflow starts from standardized TIFF recordings, performs motion correction and CNMF segmentation, and then analyzes collective population dynamics and generates the manuscript figures.
+This repository contains the processing and analysis notebooks for the manuscript *Common organization of collective dynamics across divergent self-organized neural architectures*. The released workflow starts from standardized TIFF recordings, performs motion correction and CNMF segmentation, and then analyzes collective population dynamics and generates the manuscript figures.
+
+The manuscript compares brain tissue organoids (BTOs) and cable-cluster networks (CCNs). In recording filenames and code, `org-` denotes BTO recordings and `cab-` denotes CCN recordings.
 
 ## Directory layout
 
@@ -18,12 +20,17 @@ This repository contains the processing and analysis notebooks for the accompany
     ├── 2 cnmf.ipynb
     ├── 3 rmt clean.ipynb
     └── result/                     # created by notebook 3
+        ├── PKL_PLACEMENT.md
+        ├── mv_smry_s.pkl
+        ├── figure_imshow.pkl
         ├── multi/
         ├── single/
         └── none/
 ```
 
-Extract the standardized recording archive so that the TIFF files sit directly in `tif/`. See [`tif/DATA_PLACEMENT.md`](tif/DATA_PLACEMENT.md) for the filename structure and the provenance of the layered-organoid identifiers.
+Extract the standardized recording archive so that the TIFF files sit directly in `tif/`. See [`tif/DATA_PLACEMENT.md`](tif/DATA_PLACEMENT.md) for the filename structure and the provenance of the BTO identifiers.
+
+To generate the manuscript figures without rerunning the analysis, place the two deposited plotting-data files at `analysis/result/mv_smry_s.pkl` and `analysis/result/figure_imshow.pkl`. See [`analysis/result/PKL_PLACEMENT.md`](analysis/result/PKL_PLACEMENT.md).
 
 Each notebook defines `main_path`. Set it to the repository root on the local system before running the notebook.
 
@@ -59,7 +66,7 @@ CNMF batch state is stored in `mesmerize-batch/<tsu_type>cnmf.pickle`. As in not
 
 `analysis/3 rmt clean.ipynb` is the clean release copy of the population-dynamics analysis. It matches recordings by basename across `mcorr/` and `cnmf/`, performs the reported analyses and statistical comparisons, and generates the manuscript figures.
 
-The notebook creates `analysis/result/multi/`, `analysis/result/single/`, and `analysis/result/none/` for per-recording diagnostics. It also writes the consolidated analysis output `analysis/result/mv_smry_s.pkl` and the main and supplementary figure PDFs to `analysis/result/`.
+The notebook creates `analysis/result/multi/`, `analysis/result/single/`, and `analysis/result/none/` for per-recording diagnostics. After the analysis loop, it writes `analysis/result/mv_smry_s.pkl` and `analysis/result/figure_imshow.pkl`. The plotting section reloads these two files and generates the manuscript figure PDFs without reopening the motion-corrected TIFF or CNMF files.
 
 ## Software
 
