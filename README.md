@@ -2,7 +2,7 @@
 
 This repository contains the processing and analysis notebooks for the manuscript *Common organization of collective dynamics across divergent self-organized neural architectures*. The released workflow starts from standardized TIFF recordings, performs motion correction and CNMF segmentation, and then analyzes collective population dynamics and generates the manuscript figures.
 
-The manuscript compares brain tissue organoids (BTOs) and cable-cluster networks (CCNs). In recording filenames and code, `org-` denotes BTO recordings and `cab-` denotes CCN recordings.
+The manuscript compares brain organoids (BOs) and cable-cluster networks (CCNs). In recording filenames and code, `org-` denotes BO recordings and `cab-` denotes CCN recordings.
 
 ## Directory layout
 
@@ -28,7 +28,7 @@ The manuscript compares brain tissue organoids (BTOs) and cable-cluster networks
         └── none/
 ```
 
-Extract the standardized recording archive so that the TIFF files sit directly in `tif/`. See [`tif/DATA_PLACEMENT.md`](tif/DATA_PLACEMENT.md) for the filename structure and the provenance of the BTO identifiers.
+Extract the standardized recording archive so that the TIFF files sit directly in `tif/`. See [`tif/DATA_PLACEMENT.md`](tif/DATA_PLACEMENT.md) for the filename structure and the provenance of the BO identifiers.
 
 To generate the manuscript figures without rerunning the analysis, place the two deposited plotting-data files at `analysis/result/mv_smry_s.pkl` and `analysis/result/figure_imshow.pkl`. See [`analysis/result/PKL_PLACEMENT.md`](analysis/result/PKL_PLACEMENT.md).
 
